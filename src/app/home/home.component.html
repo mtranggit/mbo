@@ -1,3 +1,6 @@
 <p>
   home works!
 </p>
+<ul>
+  <li *ngFor="let repo of repos | async">{{ repo.name }} - {{ repo.description }}</li>
+</ul>
