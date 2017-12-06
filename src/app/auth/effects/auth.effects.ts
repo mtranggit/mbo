@@ -9,29 +9,29 @@ import { Effect, Actions } from '@ngrx/effects';
 import { of } from 'rxjs/observable/of';
 
 import { AuthService } from '../services/auth.service';
-import * as Auth from '../actions/auth';
+import * as authAction from '../actions/auth';
 
 @Injectable()
 export class AuthEffects {
   @Effect()
   login$ = this.actions$
-    .ofType(Auth.LOGIN)
-    .map((action: Auth.Login) => action.payload)
+    .ofType(authAction.LOGIN)
+    .map((action: authAction.LoginAction) => action.payload)
     .exhaustMap(auth =>
       this.authService
         .login(auth)
-        .map(user => new Auth.LoginSuccess({ user }))
-        .catch(error => of(new Auth.LoginFailure(error)))
+        .map(user => new authAction.LoginSuccessAction({ user }))
+        .catch(error => of(new authAction.LoginFailureAction(error)))
     );
 
   @Effect({ dispatch: false })
   loginSuccess$ = this.actions$
-    .ofType(Auth.LOGIN_SUCCESS)
+    .ofType(authAction.LOGIN_SUCCESS)
     .do(() => this.router.navigate(['/']));
 
   @Effect({ dispatch: false })
   loginRedirect$ = this.actions$
-    .ofType(Auth.LOGIN_REDIRECT, Auth.LOGOUT)
+    .ofType(authAction.LOGIN_REDIRECT, authAction.LOGOUT)
     .do(authed => {
       this.router.navigate(['/login']);
     });

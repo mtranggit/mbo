@@ -1,5 +1,5 @@
 
-import * as fromAuth from '../actions/auth';
+import * as authAction from '../actions/auth';
 import { AuthenticatedUser } from '../models/user';
 
 export interface State {
@@ -12,16 +12,16 @@ export const initialState = {
     user: null
 };
 
-export function authReducer(state = initialState, action: fromAuth.Actions): State {
+export function reducer(state = initialState, action: authAction.Actions): State {
     switch (action.type) {
-        case fromAuth.LOGIN_SUCCESS: {
+        case authAction.LOGIN_SUCCESS: {
             return {
                 ...state,
                 loggedIn: true,
-                user.action.payload.user
+                user: action.payload.user
             };
         }
-        case fromAuth.LOGOUT: {
+        case authAction.LOGOUT: {
             return initialState;
         }
         default: {

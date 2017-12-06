@@ -1,11 +1,11 @@
 import { Action } from '@ngrx/store';
 import { AuthenticatedUser, Authenticate } from '../models/user';
 
-export const LOGIN = '[Auth] LOGIN';
-export const LOGOUT = '[Auth] LOGOUT';
-export const LOGIN_SUCCESS = '[Auth] LOGIN_SUCCESS';
-export const LOGIN_FAILURE = '[Auth] LOGIN_FAILURE';
-export const LOGIN_REDIRECT = '[Auth] LOGIN_REDIRECT';
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+export const LOGIN_REDIRECT = 'LOGIN_REDIRECT';
 
 export class LoginAction implements Action {
   readonly type = LOGIN;

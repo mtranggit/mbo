@@ -1,3 +1,18 @@
-<p>
-  login-form works!
-</p>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <p>
+      <input type="text" placeholder="Username" formControlName="username">
+  </p>
+
+  <p>
+      <input type="password" placeholder="Password" formControlName="password">
+  </p>
+
+  <p *ngIf="errorMessage">
+    {{ errorMessage }}
+  </p>
+
+  <p>
+    <button type="submit" mat-button>Login</button>
+  </p>
+
+</form>

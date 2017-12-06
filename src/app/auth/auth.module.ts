@@ -6,6 +6,8 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { routedComponents, AuthRoutingModule } from './auth-routing.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { AuthEffects } from './effects/auth.effects';
+import { reducers } from './reducers';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 
