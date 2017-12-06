@@ -12,7 +12,8 @@ export class ConfigBasedStrategy implements PreloadingStrategy {
   }
 }
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
   { path: 'about',
     loadChildren: './about/about.module#AboutModule',
     canActivate: [AuthGuardService],

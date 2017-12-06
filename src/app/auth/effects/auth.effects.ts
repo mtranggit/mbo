@@ -27,7 +27,7 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   loginSuccess$ = this.actions$
     .ofType(authAction.LOGIN_SUCCESS)
-    .do(() => this.router.navigate(['/']));
+    .do(() => this.router.navigate(['/home']));
 
   @Effect({ dispatch: false })
   loginRedirect$ = this.actions$

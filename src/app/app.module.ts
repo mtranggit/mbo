@@ -6,8 +6,8 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AuthModule } from './auth/auth.module';
-// import { AuthEffects } from './auth/effects/auth.effects';
-// import { reducers } from './auth/reducers';
+import { AuthEffects } from './auth/effects/auth.effects';
+import { reducers } from './auth/reducers';
 
 import { AppRoutingModule, ConfigBasedStrategy } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,9 +25,9 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     AppRoutingModule,
     // register reducer
-    // StoreModule.forRoot(reducers),
+    StoreModule.forRoot(reducers),
     // sets up the effects to be initialized once the app starts
-    // EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects]),
     !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 25}) : [],
     AuthModule.forRoot()
   ],

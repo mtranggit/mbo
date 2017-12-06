@@ -3,7 +3,7 @@ import { CanActivate } from '@angular/router';
 
 import { Store } from '@ngrx/store';
 import * as authAction from '../actions/auth';
-import * as fromAuth from '../reducers/auth';
+import * as fromAuth from '../reducers';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { take } from 'rxjs/operator/take';
