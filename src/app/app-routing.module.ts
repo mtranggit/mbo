@@ -5,6 +5,7 @@ import { PreloadingStrategy } from '@angular/router/src/router_preloader';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { AuthGuardService } from './auth/services/auth-guard.service';
+import { PageNotFoundComponent } from './core/containers/page-not-found/page-not-found.component';
 
 export class ConfigBasedStrategy implements PreloadingStrategy {
   preload(route: any, load: Function): Observable<any> {
@@ -18,6 +19,7 @@ const routes: Routes = [
     loadChildren: './about/about.module#AboutModule',
     canActivate: [AuthGuardService],
     data: {preload: true, title: 'About this app', depth: 1 }},
+  // { path: '**', component: PageNotFoundComponent}
   // { path: 'login',
   //   loadChildren: './auth/auth.module#AuthModule'}
 ];

@@ -10,6 +10,7 @@ import { AuthEffects } from './effects/auth.effects';
 import { reducers } from './reducers';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { MaterialModule } from '../../material/material.module';
 
 export const COMPONENTS = [
   ...routedComponents,
@@ -19,7 +20,8 @@ export const COMPONENTS = [
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialModule
   ],
   declarations: COMPONENTS,
   exports: COMPONENTS
